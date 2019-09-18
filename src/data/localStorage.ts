@@ -1,17 +1,17 @@
 export const storage: any = [
     {
         country: 'Guatemala',
-        place: 'Tikal',
-        description: 'Sitio arqueológico'
+        place: 'Tikal National Park',
+        description: 'Archeologic site tour'
     },
     {
         country: 'Corea del Sur',
-        place: 'Oryukdo'
+        place: 'Oryukdo',
         description: 'Sky walk'
     },
     {
         country: 'Perú',
-        place: 'Región Cusco'
-        description: 'Vinicunca, montaña arcoiris'
+        place: 'Vinicunca',
+        description: 'Hiking in rainbow mountain'
     }
 ]
