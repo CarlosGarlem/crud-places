@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {storage} from '../../data/localStorage';
 
 @Component({
   selector: 'app-places-delete',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./places-delete.component.scss']
 })
 export class PlacesDeleteComponent implements OnInit {
+  public data:any = [];
+  public text: string = "";
 
   constructor() { }
-
-  ngOnInit() {
+  ngOnInit():void{
+    this.data = storage
   }
 
+  removeItem(item: any) {
+    let index = this.data.indexOf(item);
+    this.data.splice(index, 1)
+  }
 }
