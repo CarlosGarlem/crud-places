@@ -1,3 +1,21 @@
+export class Place {
+    id: string;
+    country: string;
+    capital: string;
+    place: string;
+    description: string;
+    activity: string;
+
+    constructor() {
+        this.id = "";
+        this.country = "";
+        this.capital = "";
+        this.place = "";
+        this.description = "";
+        this.activity = "";
+    }
+}
+
 export const storage: any = [
     {
         id: '1',

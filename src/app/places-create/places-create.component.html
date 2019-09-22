@@ -1,1 +1,38 @@
-<p>places-create works!</p>
+<br>
+<div class = "container">
+    <h2>Adding places</h2>
+    <form id="add-form">
+        <div class="form-row">
+            <div class="form-group col-sm-6">
+                <label for="Country">Country</label>
+                <input [(ngModel)]="model.country" class="form-control" id="iCountry" name="country" placeholder="Country name" required>
+            </div>
+            <div class="form-group col-sm-6">
+                <label for="Capital">Capital</label>
+                <input [(ngModel)]="model.capital" class="form-control" id="iCapital" name="capital" placeholder="Country capital" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Place">Place</label>
+            <input [(ngModel)]="model.place" class="form-control" id="iPlace" name="place" placeholder="Place name" required>
+        </div>
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <textarea [(ngModel)]="model.description" class="form-control" id="iDescription" name="dsc" placeholder="Place dsc" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="Activity">Activity</label>
+            <input [(ngModel)]="model.activity" class="form-control" id="iActivity" name="activity" placeholder="Activity" required>
+        </div>
+        <button class="btn btn-primary" (click)="addItem()">Add</button>
+    </form>
+
+    <br>
+    <div *ngIf="showMessage" class="alert alert-info alert-dismissible fade show" role="alert">
+        Item added successfully!
+        <button type="button" class="close" (click)="this.toggleMessage()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+</div>
