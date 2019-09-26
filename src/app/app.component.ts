@@ -15,10 +15,12 @@ export class AppComponent implements OnInit{
     this.data = storage
   }
 
-   addElement() {
-    this.data.push({
-        mensaje: this.text
-      })
+  myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
   }
-
 }

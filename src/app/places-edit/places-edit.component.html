@@ -21,20 +21,20 @@
                     <input [(ngModel)]="model.country" class="form-control" id="iCountry" name="country" value="model.Country" required>
                 </div>
                 <div class="form-group col-sm-6">
-                    <label for="Capital">Capital</label>
-                    <input [(ngModel)]="model.capital" class="form-control" id="iCapital" name="capital" value="model.Capital" required>
-                </div>
-                <div class="form-group col-sm-12">
                     <label for="Place">Place</label>
                     <input [(ngModel)]="model.place" class="form-control" id="iPlace" name="place" value="model.place" required>
+                </div>
+                <div class="form-group col-sm-12">
+                    <label for="Activity">Activity</label>
+                    <input [(ngModel)]="model.activity" class="form-control" id="iActivity" name="activity" value="model.activity" required>
                 </div>
                 <div class="form-group col-sm-12">
                     <label for="Description">Description</label>
                     <textarea [(ngModel)]="model.description" class="form-control" id="iDescription" name="dsc" value="model.description" required></textarea>
                 </div>
                 <div class="form-group col-sm-12">
-                    <label for="Activity">Activity</label>
-                    <input [(ngModel)]="model.activity" class="form-control" id="iActivity" name="activity" value="model.activity" required>
+                    <label for="Rating">Rating</label>
+                    <input type ="number" min=0 max=5 step=0.1 [(ngModel)]="model.rating" class="form-control" id="iRating" name="rating" value="model.rating" required>
                 </div>
                 <button class="btn btn-primary" (click)="editItem(model.id)">Edit</button>
             </div>

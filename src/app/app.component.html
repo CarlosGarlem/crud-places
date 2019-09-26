@@ -1,30 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" routerLink="/places-home">
-      <img src="../assets/tavelLogo.png" width="40" height="40" alt="">
-    </a>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <!--<li class="nav-item active">
-        <a class="nav-link" href="/places-read">Places <span class="sr-only">(current)</span></a>
-      </li>-->
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/places-read" routerLinkActive="active">Places</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/places-create" routerLinkActive="active">Add</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/places-edit" routerLinkActive="active">Edit</a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/places-delete" routerLinkActive="active">Remove</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+
+<div class="topnav" id="myTopnav">
+  <a href="/places-home" >Home</a>
+  <a class="nav-link" routerLink="/places-read" routerLinkActive="active">Places</a>
+  <a class="nav-link" routerLink="/places-create" routerLinkActive="active">Create</a>
+  <a class="nav-link" routerLink="/places-edit" routerLinkActive="active">Edit</a>
+  <a href="javascript:void(0);" class="icon" (click)="myFunction()">
+    <span class="navbar-toggler-icon">≡</span>
+  </a>
+</div>
 <router-outlet></router-outlet>
+
+
 
 

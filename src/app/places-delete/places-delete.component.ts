@@ -16,7 +16,7 @@ export class PlacesDeleteComponent implements OnInit {
   }
 
   removeItem(item: any) {
-    if(confirm("Are you sure to delete " + item.place + " (" + item.country + ")")) {
+    if(confirm("Are you sure you want to delete " + item.place + " (" + item.country + ")?")) {
       let index = this.data.indexOf(item);
       this.data.splice(index, 1)
     }
