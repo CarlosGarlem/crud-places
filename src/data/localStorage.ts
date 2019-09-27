@@ -16,6 +16,39 @@ export class Place {
     }
 }
 
+export const placeMsg = {
+    'country': [
+      { type: 'required', message: 'Country is required' },
+      { type: 'minlength', message: 'Country must be at least 2 characters long' },
+      { type: 'maxlength', message: 'Country cannot be more than 30 characters long' },
+      { type: 'pattern', message: 'Country can only use letters' } 
+    ],
+    'place': [
+      { type: 'required', message: 'Place is required' },
+      { type: 'minlength', message: 'Place must be at least 2 characters long' },
+      { type: 'maxlength', message: 'Place cannot be more than 30 characters long' },
+      { type: 'pattern', message: 'Place can only use letters' } 
+    ],
+    'activity': [
+      { type: 'required', message: 'Activity is required' },
+      { type: 'minlength', message: 'Activity must be at least 2 characters long' },
+      { type: 'maxlength', message: 'Activity cannot be more than 30 characters long' },
+      { type: 'pattern', message: 'Activity can only use letters' } 
+    ],
+    'description': [
+      { type: 'required', message: 'Dsc is required' },
+      { type: 'minlength', message: 'Dsc must be at least 2 characters long' },
+      { type: 'maxlength', message: 'Dsc cannot be more than 50 characters long' },
+      { type: 'pattern', message: 'Dsc can only use letters' } 
+    ],
+    'rating': [
+        { type: 'required', message: 'Rating is required' },
+        { type: 'min', message: 'Rating min value allowed is 0' },
+        { type: 'max', message: 'Rating max value allowed is 5' },
+        { type: 'pattern', message: 'Ratings pattern is #.#' } 
+      ]
+}
+
 export const storage: any = [
     {
         id: 1,
@@ -26,7 +59,7 @@ export const storage: any = [
         activity: 'Archeologic site tour'
     },
     {
-        id: 2,
+        id: 2.0,
         country: 'Corea del Sur',
         rating: 5,
         place: 'Oryukdo',
@@ -34,7 +67,7 @@ export const storage: any = [
         activity: 'Sky walking'
     },
     {
-        id: 3,
+        id: 3.0,
         country: 'Perú',
         rating: 4.7,
         place: 'Vinicunca',
@@ -42,7 +75,7 @@ export const storage: any = [
         activity: 'Hiking in rainbow mountain'
     },
     {
-        id: 4,
+        id: 4.0,
         country: 'Honduras',
         rating: 4.2,
         place: 'Roatan',
