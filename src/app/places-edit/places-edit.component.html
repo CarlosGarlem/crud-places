@@ -1,42 +1,68 @@
-<br>
+<form [formGroup]="placeForm" id="add-form" (submit)="editItem(model.id)">
 <div class = "container">
     <h2>Editing places</h2>
     <div class="input-group mb-3">
             <div class="input-group-prepend">
               <label class="input-group-text" for="inputGroupSelect01">Place</label>
             </div>
-            <select [(ngModel)]="model" class="custom-select" id="inputGroupSelect01">
+            <select formControlName="instance" class="custom-select" id="inputGroupSelect01" (change)="onPlaceChange()">
+              <option [ngValue] = "null" disabled> Choose a place</option>
               <option *ngFor = "let item of data" [ngValue]="item">
                   {{item.place}} ({{item.country}})
               </option>
             </select>
     </div>
 
-        <br>
-        <h4>Edit item</h4>
-        <form id="add-form">
-            <div class="form-row">
-                <div class="form-group col-sm-6">
-                    <label for="Country">Country</label>
-                    <input [(ngModel)]="model.country" class="form-control" id="iCountry" name="country" value="model.Country" required>
+    <br>
+    <h4>Edit item</h4>
+
+        <div class="form-row">
+            <div class="form-group col-sm-6">
+                <label for="Country">Country</label>
+                <input type ="text" [(ngModel)]="model.country" formControlName="country" class="form-control" id="iCountry" name="country" placeholder="Country name">
+                 <div *ngFor="let validation of place_val.country">
+                    <span *ngIf="placeForm.get('country').hasError(validation.type) && (placeForm.get('country').dirty || placeForm.get('country').touched)" style="color:red">
+                     {{validation.message}}
+                    </span>
                 </div>
-                <div class="form-group col-sm-6">
-                    <label for="Place">Place</label>
-                    <input [(ngModel)]="model.place" class="form-control" id="iPlace" name="place" value="model.place" required>
-                </div>
-                <div class="form-group col-sm-12">
-                    <label for="Activity">Activity</label>
-                    <input [(ngModel)]="model.activity" class="form-control" id="iActivity" name="activity" value="model.activity" required>
-                </div>
-                <div class="form-group col-sm-12">
-                    <label for="Description">Description</label>
-                    <textarea [(ngModel)]="model.description" class="form-control" id="iDescription" name="dsc" value="model.description" required></textarea>
-                </div>
-                <div class="form-group col-sm-12">
-                    <label for="Rating">Rating</label>
-                    <input type ="number" min=0 max=5 step=0.1 [(ngModel)]="model.rating" class="form-control" id="iRating" name="rating" value="model.rating" required>
-                </div>
-                <button class="btn btn-primary" (click)="editItem(model.id)">Edit</button>
             </div>
-        </form>
-    </div>
+            <div class="form-group col-sm-6">
+                <label for="Place">Place</label>
+                <input type ="text" [(ngModel)]="model.place" formControlName="place" class="form-control" id="iPlace" name="place" placeholder="Place name">   
+                <div *ngFor="let validation of place_val.place">
+                    <span *ngIf="placeForm.get('place').hasError(validation.type) && (placeForm.get('place').dirty || placeForm.get('place').touched)" style="color:red">
+                     {{validation.message}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Activity">Activity</label>
+            <input type ="text" [(ngModel)]="model.activity" formControlName="activity" class="form-control" id="iActivity" name="activity" placeholder="Activity">
+            <div *ngFor="let validation of place_val.activity">
+                <span *ngIf="placeForm.get('activity').hasError(validation.type) && (placeForm.get('activity').dirty || placeForm.get('activity').touched)" style="color:red">
+                 {{validation.message}}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Description">Description</label>
+            <textarea type ="text" [(ngModel)]="model.description" formControlName="description" class="form-control" id="iDescription" name="dsc" placeholder="Place dsc"></textarea>
+            <div *ngFor="let validation of place_val.description">
+                <span *ngIf="placeForm.get('description').hasError(validation.type) && (placeForm.get('description').dirty || placeForm.get('description').touched)" style="color:red">
+                 {{validation.message}}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Rating">Rating</label>
+            <input type ="number" min=0 max=5 step=0.1 [(ngModel)]="model.rating" formControlName="rating" class="form-control" id="iRating" name="rating" placeholder="Rating">
+            <div *ngFor="let validation of place_val.rating">
+                <span *ngIf="placeForm.get('rating').hasError(validation.type) && (placeForm.get('rating').dirty || placeForm.get('rating').touched)" style="color:red">
+                 {{validation.message}}
+                </span>
+            </div>
+        </div>
+        <button [disabled]="!placeForm.valid" class="btn btn-primary" type="submit">Edit</button>
+        </div>
+    </form>

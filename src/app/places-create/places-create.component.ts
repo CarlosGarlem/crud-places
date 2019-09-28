@@ -18,11 +18,11 @@ export class PlacesCreateComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router) {
       
     this.placeForm = this.formBuilder.group({
-      country: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30), Validators.pattern('[(a-zA-Z)\s*]+')]],
-      place: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30), Validators.pattern('[(a-zA-Z)\s*]+')]],
-      activity: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(30), Validators.pattern('[(a-zA-Z)\s*]+')]],
-      description: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('[(a-zA-Z)\s*]+')]],
-      rating: ['', [Validators.required, Validators.min(0), Validators.max(5), Validators.pattern('^[0-9]([\.][0-9])?')]]
+      country: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30), Validators.pattern('[\\w\\s]+')]],
+      place: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30), Validators.pattern('[\\w\\s]+')]],
+      activity: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(30), Validators.pattern('[\\w\\s]+')]],
+      description: ['', [Validators.minLength(2), Validators.maxLength(50), Validators.pattern('[\\w\\s]+')]],
+      rating: ['', [Validators.required, Validators.min(0), Validators.max(5), Validators.pattern('^[0-9]([\\.][0-9])?')]]
       //([a-zA-Z])+\s*
     });
 
