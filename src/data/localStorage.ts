@@ -68,7 +68,7 @@ export const storage: any = [
     },
     {
         id: 3.0,
-        country: 'Perú',
+        country: 'Peru',
         rating: 4.7,
         place: 'Vinicunca',
         description: 'Mountain range',

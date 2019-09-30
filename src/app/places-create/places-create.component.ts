@@ -36,7 +36,8 @@ export class PlacesCreateComponent implements OnInit {
   }
 
   addItem(){
-    this.model.id = this.data.length + 1;
+    let nextId = Math.max.apply(Math, this.data.map(function(item) { return item.id; }));
+    this.model.id = nextId + 1;
     this.model.rating = Number(this.model.rating.toFixed(2));
     this.data.push(this.model);
     this.router.navigate(['/places-read'])
