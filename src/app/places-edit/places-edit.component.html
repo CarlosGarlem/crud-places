@@ -7,7 +7,7 @@
             </div>
             <select formControlName="instance" class="custom-select" id="inputGroupSelect01" (change)="onPlaceChange()">
               <option [ngValue] = "null" disabled> Choose a place</option>
-              <option *ngFor = "let item of data" [ngValue]="item">
+              <option *ngFor = "let item of data | async" [ngValue]="item">
                   {{item.place}} ({{item.country}})
               </option>
             </select>

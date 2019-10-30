@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Place, storage, placeMsg } from '../../data/localStorage';
 import {Router} from '@angular/router';
-import {  FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-places-edit',
@@ -10,12 +12,13 @@ import {  FormBuilder, Validators } from '@angular/forms';
 })
 export class PlacesEditComponent implements OnInit {
 
-  public data: any = [];
+  public data: Observable<any>
   public model: Place;
   public place_val: any;
   placeForm: any;
+  readonly ROOT_URL = 'http://localhost:3000'
   
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient) {
     
       
     this.placeForm = this.formBuilder.group({
@@ -32,7 +35,7 @@ export class PlacesEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.data = storage;
+    this.data = this.http.get(this.ROOT_URL + '/api/v1/places')
     this.model = new Place();
     this.place_val = placeMsg;
   }
@@ -42,15 +45,14 @@ export class PlacesEditComponent implements OnInit {
 	}
 
   editItem(id: any) {
-    let item = this.data.find(place => place.id === id);
-    let index = this.data.indexOf(item);
-    this.model.rating = Number(this.model.rating.toFixed(2));
-    this.data[index] = this.model; 
+    var place = this.model
+    delete place.id
+    const req = this.http.put(this.ROOT_URL + '/api/v1/places/' + id.toString(), place);
+    req.subscribe()
     this.router.navigate(['/places-read'])
   }
 
   onPlaceChange(){
-    this.model = this.instance.value;
-    console.log(this.instance.value);
+    this.model = this.instance.value;;
   }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Place, storage, placeMsg } from '../../data/localStorage';
+import { Place, placeMsg } from '../../data/localStorage';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Router} from '@angular/router';
 import {  FormBuilder, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-places-create',
@@ -11,11 +13,11 @@ import {  FormBuilder, Validators } from '@angular/forms';
 
 export class PlacesCreateComponent implements OnInit {
   public model: Place;
-  public data: any [];
+  readonly ROOT_URL = 'http://localhost:3000'
   public place_val: any;
   placeForm: any;
   
-  constructor(private formBuilder: FormBuilder, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient) {
       
     this.placeForm = this.formBuilder.group({
       country: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30), Validators.pattern('[\\w\\s]+')]],
@@ -30,17 +32,23 @@ export class PlacesCreateComponent implements OnInit {
   
   ngOnInit():void {
     this.model = new Place();
-    this.data = storage;
     this.place_val = placeMsg;
     //this.data = storage.sort((a, b) => (a.id > b.id) ? -1 : 1);
   }
 
   addItem(){
-    let nextId = Math.max.apply(Math, this.data.map(function(item) { return item.id; }));
-    this.model.id = nextId + 1;
-    this.model.rating = Number(this.model.rating.toFixed(2));
-    this.data.push(this.model);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
+    var place = this.model
+    delete place.id
+    const req = this.http.post(this.ROOT_URL + '/api/v1/places', place, httpOptions);
+    req.subscribe()
     this.router.navigate(['/places-read'])
   }
 
+  
 }
