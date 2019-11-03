@@ -49,6 +49,7 @@ export class PlacesEditComponent implements OnInit {
     delete place.id
     const req = this.http.put(this.ROOT_URL + '/api/v1/places/' + id.toString(), place);
     req.subscribe()
+    alert(place.place + " (" + place.country + ")" + " updated successfully")
     this.router.navigate(['/places-read'])
   }
 

@@ -47,6 +47,7 @@ export class PlacesCreateComponent implements OnInit {
     delete place.id
     const req = this.http.post(this.ROOT_URL + '/api/v1/places', place, httpOptions);
     req.subscribe()
+    alert(place.place + " (" + place.country + ")" + " created successfully")
     this.router.navigate(['/places-read'])
   }
 
