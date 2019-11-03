@@ -23,6 +23,7 @@ export class PlacesReadComponent implements OnInit {
     if(confirm("Are you sure you want to delete " + item.place + " (" + item.country + ")?")) {
       const req = this.http.delete(this.ROOT_URL + '/api/v1/places/' + item.id.toString())
       req.subscribe()
+      alert(item.place + " (" + item.country + ")" + " deleted successfully")
     }
   }
 
