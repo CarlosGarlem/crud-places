@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class PlacesReadComponent implements OnInit {
 
   public data: Observable<any>
-  readonly ROOT_URL = 'http://localhost:3000'
+  readonly ROOT_URL = 'http://placesapi.eastus.azurecontainer.io:3000'
 
   constructor(private http: HttpClient) {}
   ngOnInit():void {

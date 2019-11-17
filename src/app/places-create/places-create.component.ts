@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 
 export class PlacesCreateComponent implements OnInit {
   public model: Place;
-  readonly ROOT_URL = 'http://localhost:3000'
+  readonly ROOT_URL = 'http://placesapi.eastus.azurecontainer.io:3000'
   public place_val: any;
   placeForm: any;
   

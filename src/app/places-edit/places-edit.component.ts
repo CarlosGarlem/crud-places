@@ -16,7 +16,7 @@ export class PlacesEditComponent implements OnInit {
   public model: Place;
   public place_val: any;
   placeForm: any;
-  readonly ROOT_URL = 'http://localhost:3000'
+  readonly ROOT_URL = 'http://placesapi.eastus.azurecontainer.io:3000'
   
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient) {
     
