@@ -71,7 +71,7 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "crud-places:build:production"
+              "browserTarget": "crud-places:build:production",
             }
           }
         },

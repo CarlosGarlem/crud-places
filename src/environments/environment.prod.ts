@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  APIEndpoint: 'http://placesapi.eastus.azurecontainer.io:3000'
 };

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-places-read',
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 export class PlacesReadComponent implements OnInit {
 
   public data: Observable<any>
-  readonly ROOT_URL = 'http://placesapi.eastus.azurecontainer.io:3000'
+  readonly ROOT_URL = environment.APIEndpoint
 
   constructor(private http: HttpClient) {}
   ngOnInit():void {

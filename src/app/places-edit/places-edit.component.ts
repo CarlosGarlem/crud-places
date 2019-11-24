@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-places-edit',
@@ -16,8 +17,8 @@ export class PlacesEditComponent implements OnInit {
   public model: Place;
   public place_val: any;
   placeForm: any;
-  readonly ROOT_URL = 'http://placesapi.eastus.azurecontainer.io:3000'
-  
+  readonly ROOT_URL = environment.APIEndpoint
+
   constructor(private formBuilder: FormBuilder, private router: Router, private http: HttpClient) {
     
       
